@@ -33,8 +33,10 @@ print("Введите имя:")
 name = input()
 if c == rand:
     print(" - Приятно познакомиться,", name)
-else:
+elif c != rand and name != "Minecraft_Fan_2015":
     print(" - Кого ты обманываешь, Minecraft_Fan_2015?")
+else:
+      print(" - Привет, Minecraft_Fan_2015!")
 time.sleep(2)
 print('Не обращай внимания на звуки из кабинетов. Это мы пытаемся решить "Звёздный путь"')
 time.sleep(4)
