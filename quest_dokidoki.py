@@ -1,5 +1,7 @@
 import time
 import random
+import image
+import winsound
 
 got_key = False
 
@@ -25,7 +27,9 @@ def room2():
       hall()
 
 def room3():
+      winsound.PlaySound("sayonara.wav", winsound.SND_ASYNC)
       print("Вы зашли в кабинет. Вас увидела ваша бывшая одноклассница Моника")
+      print(image.monika)
       time.sleep(4)
       print("Странно, Саёри говорила, что девочек четверо. Но Моника тут одна")
       time.sleep(4)
@@ -87,12 +91,13 @@ def hall():
             room4()
       else:
             hall()
-
+winsound.PlaySound("maintheme.wav", winsound.SND_ASYNC)
 print("Введите имя:")
 name = input()
 print("Вы вышли на улицу")
 time.sleep(1)
 print("К вам подходит ваша соседка. Её зовут Саёри. Раньше вы ходили в школу вместе, но потом она стала просыпать будильники")
+print(image.sayori)
 time.sleep(3)
 print("Вы молча шли до школы")
 print("- Привет,", name + "! Я вступила в новый клуб - литературный. Нас уже четверо!")
