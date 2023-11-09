@@ -1,24 +1,55 @@
+
+ 
 import random
 
 print("Привет! Угадаешь число?")
+score = 51
+
+
+def highscore():
+    print("Хотите узнать рекорд? (да/нет)")
+    a = input()
+    if a == "да":
+        print("Рекорд:", score)
+    elif a == "нет":
+        cont()
+    else:
+        highscore()
+
+
+def cont():
+    print("Хотите продолжить? (да/нет)")
+    if input() == "да":
+        guess()
+    else:
+        print("Удачи!")
+
 
 def guess():
-    global i;
+    global i
+    global score
+    ch1 = random.randint(1, 5)
     while True:
         print("Попытка", i)
         print("Введите число: ")
         ch2 = int(input())
         if ch2 == ch1:
             print("Вы угадали!")
+            if i < score:
+                score = i
+            i = 1
+            highscore()
+            cont()
             break
-        else:
+        elif ch2 < ch1:
+            print("Больше!")
+            print("Попробуйте ещё раз!")
+        elif ch2 > ch1:
+            print("Меньше!")
             print("Попробуйте ещё раз!")
         i += 1
 
 while True:
-    ch1 = random.randint(1, 5)
-
     i = 1
-    
-    print("Хотите продолжить? (да/нет)")
-    if input() == "да":
+    guess()
+    break
