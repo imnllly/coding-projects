@@ -1,5 +1,3 @@
-
- 
 import random
 
 print("Привет! Угадаешь число?")
@@ -19,16 +17,19 @@ def highscore():
 
 def cont():
     print("Хотите продолжить? (да/нет)")
-    if input() == "да":
+    b = input()
+    if b == "да":
         guess()
-    else:
+    elif b == "нет":
         print("Удачи!")
+    else:
+        cont()
 
 
 def guess():
     global i
     global score
-    ch1 = random.randint(1, 5)
+    ch1 = random.randint(1, 50)
     while True:
         print("Попытка", i)
         print("Введите число: ")
@@ -53,3 +54,4 @@ while True:
     i = 1
     guess()
     break
+
