@@ -1,0 +1,40 @@
+from tkinter import *
+
+tk = Tk()
+
+c = Canvas(tk, width=640, height=640, bg='white')
+c.pack()
+
+oval = c.create_oval(0, 0, 50, 50, fill='blue')
+
+vx = 10
+vy = 14
+def move():
+    global vx, vy
+    c.move(oval, vx, vy)
+    x1, x2, y1, y2 = c.coords(oval)
+    if x2 >= 640:
+        if vy < 0:
+            vy = -vy
+        c.move(oval, vx, vy)
+        c.after(100, move)
+    elif y2 >= 640:
+        if vx > 0 and vy > 0:
+            vx = -vx
+            vy = -vy
+        c.move(oval, vx, vy)
+        c.after(100, move)
+    elif x1 >= 640:
+        if vx > 0:
+            vx = -vx
+        c.move(oval, vx, vy)
+        c.after(100, move)
+    elif y1 >= 640:
+        c.move(oval, vx, vy)
+        c.after(100, move)
+    c.after(100, move)
+
+
+c.after(100, move)
+
+mainloop()
