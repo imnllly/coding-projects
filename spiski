@@ -1,9 +1,0 @@
-nums = [2, 3, 2]
-j = 0
-res = 0
-for i in range(len(nums) - 1):
-    for j in range(len(nums) - 1):
-        print(i, j+1)
-        if nums[i] == nums[j + 1]:
-            res += 1
-print(res)
