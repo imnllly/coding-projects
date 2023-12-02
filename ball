@@ -11,27 +11,16 @@ vx = 10
 vy = 14
 def move():
     global vx, vy
-    c.move(oval, vx, vy)
-    x1, x2, y1, y2 = c.coords(oval)
+    x1, y1, x2, y2 = c.coords(oval)
+    if y1 < 0:
+        vy = -vy
+    if x1 < 0:
+        vx = -vx
     if x2 >= 640:
-        if vy < 0:
-            vy = -vy
-        c.move(oval, vx, vy)
-        c.after(100, move)
-    elif y2 >= 640:
-        if vx > 0 and vy > 0:
-            vx = -vx
-            vy = -vy
-        c.move(oval, vx, vy)
-        c.after(100, move)
-    elif x1 >= 640:
-        if vx > 0:
-            vx = -vx
-        c.move(oval, vx, vy)
-        c.after(100, move)
-    elif y1 >= 640:
-        c.move(oval, vx, vy)
-        c.after(100, move)
+        vx = -vx
+    if y2 >= 640:
+        vy = -vy
+    c.move(oval, vx, vy)
     c.after(100, move)
 
 
