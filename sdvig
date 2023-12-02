@@ -1,0 +1,11 @@
+massive = [0, 1, 2, 3, 4]
+
+num = int(input())
+len = len(massive) - 1
+
+for i in range(len):
+    massive[abs(i - num)] = massive[i]
+    if (i + num) > i:
+        massive[abs(i - num)] = massive[abs(i - num) - len]
+
+print(massive)
