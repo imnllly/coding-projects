@@ -9,4 +9,4 @@ y *= 5
 z -= i
 x //= i
 z //= 5406
-print(s[x] + s[y - 47] + s[z])
+pr(s[x] + s[y - 47] + s[z]) #pr = print
