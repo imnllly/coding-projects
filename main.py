@@ -1,18 +1,19 @@
 # максимальная сумма в массиве
 # j < i
-# l[i] + l[j] -> max
+# l[i] - l[j] -> max
 
+l = []
 sp = input().split()
 n = int(sp[0])
 k = int(sp[1])
-l = input().split()
-ibest = 1
+l = [int(i) for i in input().split()]
+ibest = k+1
 jbest = 0
 imax = 0
 
 for i in range(k+1, len(l)):
-  if l[i - 1] > l[imax]:
-    imax = i - k
+  if l[i - k - 1] > l[imax]:
+    imax = i - k - 1
   if l[i] + l[imax] > l[ibest] + l[jbest]:
     ibest = i
     jbest = imax
