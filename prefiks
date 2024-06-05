@@ -1,0 +1,23 @@
+sp = []
+sp_ost = [0] * 50
+sp_ost[0] = 0
+sp_index = [0] * 50
+sp_index[0] = -1
+pref = [sp[0]]
+maxi = 0
+for i in range(1, len(sp)):
+    pref.append(pref[i-1] + sp[i])
+for i in range(len(pref)):
+    ost = pref[i] % 50
+    if sp_ost[ost] != -1:
+        summ = pref[i] - sp_ost[ost]
+        dl = i - sp_index[ost]
+        if summ > maxi:
+            maxi = summ
+            mindl = dl
+        elif summ == maxi:
+            mindl = min(mindl, dl)
+    else:
+        sp_ost[ost] = pref[i]
+        sp_index[ost] = i
+print(mindl)
