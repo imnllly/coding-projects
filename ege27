@@ -20,4 +20,4 @@ for i in range(1, len(l)):
     imin = i - 1
   if l[i] - l[imin] > l[ibest] - l[jbest]:
     ibest = i
-    jbest = jmin
+    jbest = imin
